@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ziyaret · Âheste</title>
+<meta name="description" content="Âheste'yi randevuyla ziyaret edin: atölyeler, gönüllülük ve iletişim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">âheste<small>toprak defteri</small></a>
+    <nav class="site-nav" aria-label="Ana menü">
+      <a href="permaculture.html">Permakültür</a>
+      <a href="market.html">Pazar</a>
+      <a href="cafe.html">Gölge Kafe</a>
+      <a href="visit.html">Ziyaret</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap page-head">
+    <span class="label accent">Ziyaret · Bursa</span>
+    <h1>Gelin, <em>toprağa dokunun.</em></h1>
+    <p class="lede">Bahçemiz Bursa'da, bir köy yamacında. Ziyaretler randevuyla yapılıyor. Yol tarifini randevunuz onaylanınca paylaşıyoruz, böylece bahçe hiçbir gün kalabalıklaşmıyor.</p>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <span class="label">Atölyeler</span>
+      <div>
+        <h2>Bu sonbahar bahçede</h2>
+        <p>Atölyeler 12 kişiyle sınırlı. Öğle yemeği bahçe tabağıyla birlikte veriliyor.</p>
+      </div>
+    </div>
+    <div class="cols-3 log">
+      <article><time datetime="2026-11-15">15 Kasım · Cumartesi</time><h3>Zeytin hasadı ve soğuk sıkım</h3><p>Sabah hasat, öğleden sonra sıkımhanede. Kendi şişenizi götürürsünüz. ₺1.200</p></article>
+      <article><time datetime="2026-11-29">29 Kasım · Cumartesi</time><h3>Kompost ve solucan gübresi</h3><p>Sıcak kompost yığını kurma, solucan kutusu bakımı. Evde başlamak için tam rehber. ₺750</p></article>
+      <article><time datetime="2026-12-13">13 Aralık · Cumartesi</time><h3>Zeytinyağlı sabun yapımı</h3><p>Soğuk işlemle adaçayılı sabun. Kalıbınız 6 hafta sonra kürden çıkınca kargolanır. ₺950</p></article>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="split" style="align-items: start">
+      <div>
+        <span class="label">Gönüllülük</span>
+        <h2 style="margin-top: 10px">Bir hafta bizimle yaşayın</h2>
+        <p>Mart'tan Kasım'a kadar gönüllü kabul ediyoruz. Günde beş saat bahçede çalışıyor, kalan zamanda öğreniyor ve dinleniyorsunuz. Konaklama ve yemekler bizden.</p>
+        <dl class="facts">
+          <dt>Süre</dt><dd>En az 1, en fazla 4 hafta</dd>
+          <dt>Kontenjan</dt><dd>Aynı anda 3 gönüllü</dd>
+          <dt>Öncelik</dt><dd>Hasat dönemleri: Haziran, Ağustos, Kasım</dd>
+        </dl>
+      </div>
+      <div id="contact">
+        <span class="label">İletişim</span>
+        <h2 style="margin-top: 10px">Randevu ve sorular</h2>
+        <form class="form" data-whatsapp="Merhaba, Âheste hakkında yazıyorum.">
+          <div class="field"><label for="c-name">Ad soyad</label><input id="c-name" name="name" data-label="Ad" required autocomplete="name"></div>
+          <div class="field">
+            <label for="c-topic">Konu</label>
+            <select id="c-topic" name="topic" data-label="Konu" required>
+              <option value="">Seçin</option>
+              <option>Bahçe ziyareti</option>
+              <option>Atölye kaydı</option>
+              <option>Gönüllülük</option>
+              <option>Toptan / restoran siparişi</option>
+              <option>Diğer</option>
+            </select>
+          </div>
+          <div class="field"><label for="c-msg">Mesaj</label><textarea id="c-msg" name="message" data-label="Mesaj" rows="4" required></textarea></div>
+          <button class="btn" type="submit">WhatsApp ile gönder</button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>aheste.tr · Bursa · Ziyaret randevuyla</span>
+    <span class="note">âheste âheste büyüyoruz</span>
+  </div>
+</footer>
+
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

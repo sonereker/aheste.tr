@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gölge Kafe · Âheste</title>
+<meta name="description" content="Asma çardağının altında bahçe kekikli kahve, adaçayı demlemesi ve zeytinyağlı kurabiye. Masa ayırtın.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">âheste<small>toprak defteri</small></a>
+    <nav class="site-nav" aria-label="Ana menü">
+      <a href="permaculture.html">Permakültür</a>
+      <a href="market.html">Pazar</a>
+      <a href="cafe.html">Gölge Kafe</a>
+      <a href="visit.html">Ziyaret</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap hero">
+    <div>
+      <span class="label accent">Gölge Kafe · Zon 0</span>
+      <h1>Asmanın gölgesinde <em>bir kahve molası.</em></h1>
+      <p class="lede">Kafemiz bahçenin ortasında, asma çardağının altında. Dokuz masa var, hepsi zeytinlere bakıyor. Kahvemiz bahçe kekiğiyle közde pişer, kurabiyeler kendi zeytinyağımızla yapılır. Kahveden sonra bahçe turu ücretsiz.</p>
+      <dl class="facts">
+        <dt>Açık</dt><dd>Perşembe – Pazar, 10:00 – 18:00</dd>
+        <dt>Kapalı</dt><dd>Ocak ve Şubat, bahçe dinlenirken</dd>
+        <dt>Masa</dt><dd>9 masa, hafta sonu ayırtmanızı öneririz</dd>
+      </dl>
+    </div>
+    <figure>
+      <img src="assets/images/cafe-pergola.webp" alt="Asma çardağı altında ahşap masa, kahve fincanı ve zeytinyağlı kurabiyeler" width="1400" height="1050">
+      <figcaption>Çardak · öğleden sonra</figcaption>
+    </figure>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <span class="label">Menü</span>
+      <div>
+        <h2>Bahçeden fincana</h2>
+        <p>Menü mevsime göre değişiyor. Bitkilerin hepsi on adım ötedeki teraslardan geliyor.</p>
+      </div>
+    </div>
+    <div class="split" style="align-items: start">
+      <div>
+        <h3 style="margin-bottom: 8px">Sıcak</h3>
+        <ul class="menu">
+          <li><span class="item">Kekikli Türk kahvesi<small>bahçe kekiği, közde</small></span><span class="p">₺110</span></li>
+          <li><span class="item">Filtre kahve<small>günün çekirdeği</small></span><span class="p">₺100</span></li>
+          <li><span class="item">Adaçayı demlemesi<small>taze yaprak, ıhlamur balı</small></span><span class="p">₺90</span></li>
+          <li><span class="item">Bahçe çayı<small>adaçayı, ıhlamur, melisa, biberiye</small></span><span class="p">₺90</span></li>
+          <li><span class="item">Sıcak elma-tarçın<small>kendi elmalarımızdan</small></span><span class="p">₺95</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 8px">Yanına</h3>
+        <ul class="menu">
+          <li><span class="item">Zeytinyağlı kurabiye<small>biberiye tuzu ile</small></span><span class="p">₺75</span></li>
+          <li><span class="item">Ayva tatlısı<small>sonbahar boyunca</small></span><span class="p">₺140</span></li>
+          <li><span class="item">Kuru domatesli pide<small>köy ekmeği hamuru, kekik</small></span><span class="p">₺180</span></li>
+          <li><span class="item">Bahçe tabağı<small>günün hasadı, zeytin, peynir, köy ekmeği</small></span><span class="p">₺320</span></li>
+        </ul>
+        <p class="note" style="margin-top: 16px">kahve telvesi solucan kutusuna gidiyor</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="reservation">
+    <div class="section-head">
+      <span class="label">Masa ayırt</span>
+      <div>
+        <h2>Bir masa ayırtın</h2>
+        <p>Formu doldurun, mesajınız WhatsApp'ta hazır olarak açılsın. Aynı gün içinde onaylıyoruz.</p>
+      </div>
+    </div>
+    <form class="form" data-whatsapp="Merhaba, Gölge Kafe'de masa ayırtmak istiyorum.">
+      <div class="field"><label for="res-name">Ad soyad</label><input id="res-name" name="name" data-label="Ad" required autocomplete="name"></div>
+      <div class="row-2">
+        <div class="field"><label for="res-date">Tarih</label><input id="res-date" name="date" data-label="Tarih" type="date" required></div>
+        <div class="field">
+          <label for="res-time">Saat</label>
+          <select id="res-time" name="time" data-label="Saat" required>
+            <option value="">Seçin</option>
+            <option>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label for="res-guests">Kişi sayısı</label><input id="res-guests" name="guests" data-label="Kişi" type="number" min="1" max="12" value="2" required></div>
+      <div class="field"><label for="res-note">Not (isteğe bağlı)</label><textarea id="res-note" name="note" data-label="Not" rows="3" placeholder="Bahçe turu da istiyoruz…"></textarea></div>
+      <button class="btn" type="submit">WhatsApp ile ayırt</button>
+      <p class="form-status" aria-live="polite"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>aheste.tr · Bursa · Ziyaret randevuyla</span>
+    <span class="note">âheste âheste büyüyoruz</span>
+  </div>
+</footer>
+
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
