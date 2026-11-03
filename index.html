@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Âheste · Bursa'da bir permakültür bahçesi</title>
-<meta name="description" content="Âheste, Bursa'da bir permakültür bahçesi. Mevsimine göre sebze, meyve, tıbbi bitkiler, zeytinyağı, doğal sabun ve bahçede kahve molası.">
+<title>Âheste · Bir permakültür çiftliğinin proje defteri</title>
+<meta name="description" content="Âheste: kurmak istediğimiz permakültür çiftliğinin herkese açık proje defteri. Konum, bahçe, ağaçlar, kafe ve dükkân üzerine notlar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -13,13 +13,14 @@
 <body>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="index.html">âheste<small>toprak defteri</small></a>
-    <nav class="site-nav" aria-label="Ana menü">
-      <a href="permaculture.html">Permakültür</a>
-      <a href="market.html">Pazar</a>
-      <a href="cafe.html">Gölge Kafe</a>
-      <a href="visit.html">Ziyaret</a>
-      <button class="cart-button" type="button" data-open-cart>Sepet <span class="count" data-cart-count>0</span></button>
+    <a class="brand" href="index.html">âheste<small>proje defteri</small></a>
+    <nav class="site-nav" aria-label="Notlar">
+      <a href="index.html">Defter</a>
+      <a href="location.html">Nerede?</a>
+      <a href="garden.html">Bahçe</a>
+      <a href="trees.html">Ağaçlar</a>
+      <a href="cafe.html">Kafe</a>
+      <a href="shop.html">Dükkân</a>
     </nav>
   </div>
 </header>
@@ -27,111 +28,89 @@
 <main>
   <section class="wrap hero">
     <div>
-      <span class="label accent">Bursa · 12 dönüm · 2017'den beri</span>
-      <h1>Toprak acele etmez. <em>Biz de.</em></h1>
-      <p class="lede">Âheste, Bursa'da bir köy yamacında permakültür bahçesi. 2017'de sürülmüş, yorgun bir tarlayı devraldık. Bugün zeytin ağaçlarının altında biberiye, adaçayı ve kekik büyüyor. Yağmur suyunu hendeklerle tutuyor, toprağı kompostla besliyoruz. Bahçe ne veriyorsa onu satıyoruz, o kadar.</p>
-      <p class="note">bu hafta: zeytin hasadı sürüyor, kekik kurutmada</p>
+      <div class="note-meta"><span>Not 00</span><span>Önsöz</span><span class="status discussing">Defter açık</span></div>
+      <h1>Henüz bir bahçemiz yok. <em>Bir defterimiz var.</em></h1>
+      <p class="lede">Âheste, kurmak istediğimiz permakültür çiftliğinin adı. Toprağı sürmeyen, suyu tutan, zeytin ağaçlarının altında biberiye ve kekik yetiştiren, küçük bir kafesi ve dükkânı olan bir yer hayal ediyoruz. Bu defterde nerede, nasıl ve neyle başlayacağımızı herkesin gözü önünde düşünüyoruz.</p>
+      <p class="note">fikriniz varsa yazın, defter herkese açık</p>
     </div>
     <figure>
-      <img src="assets/images/hero-garden.webp" alt="Altın saatte zeytin ağaçları, biberiye çalıları ve malçlı hendeklerle dolu bir yamaç bahçesi" width="1400" height="788">
-      <figcaption>Zon 3 · zeytin loncası, Ekim sonu</figcaption>
+      <img src="assets/images/notebook-desk.webp" alt="Ahşap masada açık bir saha defteri, kurutulmuş adaçayı ve biberiye, toprak örneği kavanozları" width="1400" height="1050">
+      <figcaption>Masadaki defter · toprak örnekleri</figcaption>
     </figure>
   </section>
 
   <section class="wrap section">
     <div class="section-head">
-      <span class="label">01 · Tasarım</span>
-      <div>
-        <h2>Bahçeyi zonlarla okuyun</h2>
-        <p>Permakültürde her şey, ne sıklıkla ilgilendiğimize göre evin çevresine yerleşir. Haritadaki bir halkaya dokunun, orada ne yaşadığını görün.</p>
-      </div>
+      <span class="label">Durum</span>
+      <div><h2>Kararların neresindeyiz?</h2><p>Her not bir soruyla başlıyor ve bir eğilimle bitiyor. Kesinleşen kararlar burada birikecek.</p></div>
     </div>
-    <div class="zones">
-      <div class="zone-map">
-        <svg viewBox="0 0 400 400" role="img" aria-label="Zon 0'dan 5'e permakültür zon haritası"><g id="zoneRings"></g></svg>
-      </div>
-      <ol class="zone-list" id="zoneList"></ol>
+    <div class="board">
+      <div class="open"><strong>1</strong><span>Açık soru</span></div>
+      <div class="discussing"><strong>2</strong><span>Tartışılıyor</span></div>
+      <div class="leaning-box"><strong>2</strong><span>Eğilim var</span></div>
+      <div class="decided"><strong>3</strong><span>Karar verildi</span></div>
     </div>
-    <p><a class="text-link" href="permaculture.html">Permakültür yaklaşımımız</a></p>
   </section>
 
   <section class="wrap section">
     <div class="section-head">
-      <span class="label">02 · Etik</span>
-      <div><h2>Üç etik, her kararın altında</h2></div>
+      <span class="label">İçindekiler</span>
+      <div><h2>Notlar</h2><p>Her sayfa bir konuyu farklı seçenekleriyle, artı ve eksileriyle tartıyor.</p></div>
+    </div>
+    <ol class="toc">
+      <li><a href="location.html"><span><strong>Nerede olmalı?</strong><span class="q">Bursa mı, Çanakkale mi, Yalova mı? Şehre en fazla kaç dakika?</span></span><span class="status discussing">Tartışılıyor</span></a></li>
+      <li><a href="garden.html"><span><strong>Bahçede neler olabilir?</strong><span class="q">Zonlar, gıda ormanı, su, tavuk, arı: hangisi ilk yıl, hangisi sonra?</span></span><span class="status leaning">Eğilim var</span></a></li>
+      <li><a href="trees.html"><span><strong>Hangi ağaçlar?</strong><span class="q">Zeytin çeşitleri, meyve ağaçları ve azot bağlayıcılar. Üç bölgeyle uyumları.</span></span><span class="status leaning">Eğilim var</span></a></li>
+      <li><a href="cafe.html"><span><strong>Kafede ne satabiliriz?</strong><span class="q">Kahve molası mı, bahçe kahvaltısı mı, hafta sonu sofraları mı?</span></span><span class="status open">Açık soru</span></a></li>
+      <li><a href="shop.html"><span><strong>Dükkânda neler satabiliriz?</strong><span class="q">Zeytinyağından sabuna: raf ömrü, izinler, emek ve kâr.</span></span><span class="status discussing">Tartışılıyor</span></a></li>
+    </ol>
+  </section>
+
+  <section class="wrap section">
+    <div class="section-head">
+      <span class="label">Pusula</span>
+      <div><h2>Değişmeyecek olanlar</h2><p>Nerede ve nasıl olursa olsun, bu üç etik her kararın altında duracak.</p></div>
     </div>
     <div class="cols-3">
-      <div class="ethic"><h3>Toprağa özen</h3><p>Sürüm yok, çıplak toprak yok. Malç ve kendi kompostumuzla toprağın organik maddesini %1,2'den %4,8'e çıkardık.</p></div>
-      <div class="ethic"><h3>İnsana özen</h3><p>Gönüllüler, atölyeler, kafede uzun sohbetler. Bahçe, emeği paylaşan herkesi doyuracak kadar üretir.</p></div>
-      <div class="ethic"><h3>Adil paylaşım</h3><p>Fazlası tohum kütüphanesine, komşulara ve toprağa geri döner. Stok bitince ürün de biter.</p></div>
+      <div class="ethic"><h3>Toprağa özen</h3><p>Sürüm yok, çıplak toprak yok, sentetik gübre ve ilaç yok. Toprağı her yıl biraz daha zengin bırakmak.</p></div>
+      <div class="ethic"><h3>İnsana özen</h3><p>Bizi, komşuları, gönüllüleri ve ziyaretçileri yormayan, besleyen bir yer. Aşırı büyümeden.</p></div>
+      <div class="ethic"><h3>Adil paylaşım</h3><p>Fazlası tohum, ürün ve bilgi olarak geri dönecek. Bu defterin herkese açık olması da bunun parçası.</p></div>
     </div>
   </section>
 
   <section class="wrap section">
     <div class="section-head">
-      <span class="label">03 · Pazar</span>
-      <div>
-        <h2>Bahçeden</h2>
-        <p>Stok her pazartesi elle sayılıyor. Biten ürün için "Gelince haber ver"e dokunun, yeni hasatta size yazalım.</p>
-      </div>
+      <span class="label">Kararlar</span>
+      <div><h2>Şimdiye kadar netleşenler</h2></div>
     </div>
-    <div class="products" id="products" data-limit="4"></div>
-    <p style="margin-top: 32px"><a class="text-link" href="market.html">Tüm ürünler</a></p>
-  </section>
-
-  <section class="wrap section">
-    <div class="section-head">
-      <span class="label">04 · Mola</span>
-      <div><h2>Gölge Kafe, asma çardağının altında</h2></div>
-    </div>
-    <div class="split">
-      <figure>
-        <img src="assets/images/cafe-pergola.webp" alt="Asma çardağı altında ahşap masa, kahve fincanı ve zeytinyağlı kurabiyeler" width="1400" height="1050">
-        <figcaption>Zon 0 · çardak, öğleden sonra</figcaption>
-      </figure>
-      <div>
-        <ul class="menu">
-          <li><span class="item">Kekikli Türk kahvesi<small>bahçe kekiği, közde</small></span><span class="p">₺110</span></li>
-          <li><span class="item">Adaçayı demlemesi<small>taze yaprak, ıhlamur balı</small></span><span class="p">₺90</span></li>
-          <li><span class="item">Zeytinyağlı kurabiye<small>kendi yağımız, biberiye tuzu</small></span><span class="p">₺75</span></li>
-        </ul>
-        <p class="hours">Perşembe – Pazar · 10:00 – 18:00</p>
-        <p><a class="text-link" href="cafe.html">Menü ve masa ayırtma</a></p>
-      </div>
+    <div class="log">
+      <article><time><span class="status decided">Karar verildi</span></time><div><h3>Adı: Âheste</h3><p>Yavaş, telaşsız. Ağaçlar on yılda, toprak yirmi yılda kurulur. Biz de o hızda büyüyeceğiz.</p></div></article>
+      <article><time><span class="status decided">Karar verildi</span></time><div><h3>Permakültür ilkeleriyle</h3><p>Önce bir yıl gözlem, sonra tasarım. Su ve toprak bitkilerden önce gelir.</p></div></article>
+      <article><time><span class="status decided">Karar verildi</span></time><div><h3>Üç aday bölge: Bursa, Çanakkale, Yalova</h3><p>Hepsi Marmara ve Kuzey Ege'de, zeytin yetişebilen ve büyük şehirlere ulaşılabilir yerler.</p></div></article>
     </div>
   </section>
 
   <section class="wrap section">
     <div class="section-head">
-      <span class="label">05 · Günlük</span>
-      <div><h2>Bahçe günlüğünden</h2></div>
+      <span class="label">Günlük</span>
+      <div><h2>Son eklenenler</h2></div>
     </div>
-    <div class="cols-3 log">
-      <article><time datetime="2026-10-28">28 Ekim</time><h3>Hendekler doldu</h3><p>İlk sonbahar yağmuru 38 mm. Kontur hendekleri suyu tuttu, zeytin sırası tek damla kaçırmadı.</p></article>
-      <article><time datetime="2026-10-19">19 Ekim</time><h3>Solucan kutusu ikiye bölündü</h3><p>Kırmızı solucan nüfusu yaz boyunca üç katına çıktı. Yeni kutu kafenin kahve telvesiyle beslenecek.</p></article>
-      <article><time datetime="2026-10-06">6 Ekim</time><h3>Tohum kütüphanesi açıldı</h3><p>Yerel domates, fasulye ve kabak tohumlarından 64 çeşit. Getiren götürür, alan bir sonraki yıl geri getirir.</p></article>
+    <div class="log">
+      <article><time datetime="2026-11-03">3 Kasım 2026</time><div><h3>Defter yayında</h3><p>Beş not açıldı: konum, bahçe, ağaçlar, kafe, dükkân.</p></div></article>
+      <article><time datetime="2026-11-03">3 Kasım 2026</time><div><h3>Konum için skor tablosu</h3><p>Ölçütlerin ağırlıklarını kendiniz değiştirip sonucu görebilirsiniz.</p></div></article>
+      <article><time datetime="2026-11-03">3 Kasım 2026</time><div><h3>Ağaç listesi: 14 tür</h3><p>Zeytin çeşitleri, meyve ağaçları ve azot bağlayıcılar, bölgeye göre filtrelenebilir.</p></div></article>
     </div>
   </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>aheste.tr · Bursa · Ziyaret randevuyla</span>
-    <span class="note">âheste âheste büyüyoruz</span>
+    <span>aheste.tr · herkese açık proje defteri · son güncelleme 3 Kasım 2026</span>
+    <span class="note">toprak acele etmez, biz de</span>
   </div>
 </footer>
 
-<aside class="cart" id="cart" aria-hidden="true" aria-label="Sepet">
-  <header><h2 style="font-size: 1.4rem; margin: 0">Sepet</h2><button class="icon-button" type="button" data-close-cart>Kapat</button></header>
-  <ul class="cart-items" id="cartItems"></ul>
-  <footer>
-    <div class="cart-total"><span>Toplam</span><span id="cartTotal">₺0</span></div>
-    <a class="btn" id="cartCheckout" href="#" target="_blank" rel="noopener">WhatsApp ile sipariş ver</a>
-    <p class="muted" style="margin: 0; font-size: .92rem">Ödeme teslimatta. Bursa içine cumartesi teslim.</p>
-  </footer>
-</aside>
-
 <script type="module" src="assets/js/main.js"></script>
-<script type="module" src="assets/js/market.js"></script>
 </body>
 </html>

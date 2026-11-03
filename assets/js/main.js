@@ -1,39 +1,10 @@
-// Set to the farm's number in international format without "+" (e.g. "905xxxxxxxxx").
-// Left empty, WhatsApp opens with the message and lets the visitor pick a contact.
-export const WHATSAPP_NUMBER = "";
-
-export function whatsappLink(message) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
-
-export function formatPrice(value) {
-  return `₺${value.toLocaleString("tr-TR")}`;
-}
-
-let toastTimer;
-export function showToast(message) {
-  let toast = document.getElementById("toast");
-  if (!toast) {
-    toast = document.createElement("div");
-    toast.id = "toast";
-    toast.className = "toast";
-    toast.setAttribute("role", "status");
-    toast.setAttribute("aria-live", "polite");
-    document.body.appendChild(toast);
-  }
-  toast.textContent = message;
-  toast.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
-}
-
 const ZONES = [
-  { id: 0, title: "Ev ve kafe", desc: "Gölge Kafe, kurutma odası, sabun atölyesi. Her gün buradayız." },
-  { id: 1, title: "Mutfak bahçesi", desc: "Anahtar delik yataklar, domates, fesleğen, solucan kompostu." },
-  { id: 2, title: "Tıbbi bitkiler", desc: "Biberiye, adaçayı, kekik terasları. Arı kovanları da burada." },
-  { id: 3, title: "Zeytin loncası", desc: "140 zeytin ağacı, altında baklagiller ve yer örtücüler." },
-  { id: 4, title: "Yarı yabani orman", desc: "Ceviz, kestane, yabani armut. Yılda birkaç kez hasat." },
-  { id: 5, title: "Yaban alanı", desc: "Hiç dokunmuyoruz. Gözlem ve öğrenme alanı." }
+  { id: 0, title: "Ev, kafe, atölye", desc: "Her gün olduğumuz yer. Kafe, kurutma odası, sabun ve alet atölyesi buraya." },
+  { id: 1, title: "Mutfak bahçesi", desc: "Her gün toplananlar: domates, salata, aromatik otlar, solucan kompostu." },
+  { id: 2, title: "Tıbbi bitkiler ve tavuklar", desc: "Biberiye, adaçayı, kekik terasları. Belki tavuk kümesi ve arı kovanları." },
+  { id: 3, title: "Zeytin ve meyve", desc: "Ana ürün alanı. Zeytin loncaları, meyve ağaçları, altında baklagiller." },
+  { id: 4, title: "Yarı yabani orman", desc: "Ceviz, kestane, dut. Yılda birkaç kez uğranan, kendi başına yaşayan alan." },
+  { id: 5, title: "Yaban alanı", desc: "Hiç dokunulmayacak köşe. Gözlem ve öğrenme için." }
 ];
 
 function initZoneMap() {
@@ -75,7 +46,7 @@ function initZoneMap() {
   function setZone(id) {
     document.querySelectorAll("[data-zone]").forEach(el => el.classList.toggle("is-active", Number(el.dataset.zone) === id));
   }
-  setZone(2);
+  setZone(0);
 }
 
 function markCurrentPage() {
@@ -85,24 +56,5 @@ function markCurrentPage() {
   });
 }
 
-function initWhatsappForms() {
-  document.querySelectorAll("form[data-whatsapp]").forEach(form => {
-    form.addEventListener("submit", event => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
-      const data = new FormData(form);
-      const lines = [form.dataset.whatsapp];
-      form.querySelectorAll("[name]").forEach(field => {
-        const value = data.get(field.name);
-        if (value) lines.push(`${field.dataset.label || field.name}: ${value}`);
-      });
-      window.open(whatsappLink(lines.join("\n")), "_blank", "noopener");
-      const status = form.querySelector(".form-status");
-      if (status) status.textContent = "WhatsApp'ta mesajınız hazır, göndermeyi unutmayın.";
-    });
-  });
-}
-
 initZoneMap();
 markCurrentPage();
-initWhatsappForms();

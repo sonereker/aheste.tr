@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hangi ağaçlar? · Âheste</title>
+<meta name="description" content="Zeytin çeşitleri, meyve ağaçları ve azot bağlayıcılar: ilk verim, su ihtiyacı, don dayanımı ve Bursa, Çanakkale, Yalova ile uyum.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Caveat:wght@500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">âheste<small>proje defteri</small></a>
+    <nav class="site-nav" aria-label="Notlar">
+      <a href="index.html">Defter</a>
+      <a href="location.html">Nerede?</a>
+      <a href="garden.html">Bahçe</a>
+      <a href="trees.html">Ağaçlar</a>
+      <a href="cafe.html">Kafe</a>
+      <a href="shop.html">Dükkân</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="wrap page-head">
+    <div>
+      <div class="note-meta"><span>Not 03</span><span>Ağaçlar</span><span class="status leaning">Eğilim var</span></div>
+      <h1>Hangi ağaçlar? <em>Önce zeytin, sonra gerisi.</em></h1>
+      <p class="lede">Ağaç seçimi en uzun vadeli kararımız: bugün dikilen ceviz yirmi yıl sonra gölge verecek. Burada aday türleri iklim, su ihtiyacı ve üç bölgeyle uyumlarına göre tartıyoruz.</p>
+    </div>
+    <figure><img src="assets/images/trees-sheet.webp" alt="Zeytin, incir, nar, ceviz, badem ve ayva dallarından oluşan suluboya botanik pafta" width="1400" height="1050"></figure>
+  </section>
+  <section class="wrap section">
+    <div class="section-head">
+      <span class="label">Liste</span>
+      <div><h2>Aday ağaçlar</h2><p>Filtreleyin: bir bölge seçince o bölgede zor yetişenler gizlenir. Rakamlar genel kaynaklardan, fidanlıklarla doğrulanacak. <span class="estimate">tahmini</span></p></div>
+    </div>
+    <div id="treeFilters"></div>
+    <p class="label" id="treeCount" aria-live="polite" style="margin: 0 0 12px"></p>
+    <div class="table-wrap"><table class="compare-table"><thead><tr><th>Ağaç</th><th>Katman</th><th>İlk verim</th><th>Su</th><th>Don</th><th>Bursa</th><th>Çanakkale</th><th>Yalova</th><th>Not</th></tr></thead><tbody id="treeRows"></tbody></table></div>
+  </section>
+  <section class="wrap section">
+    <div class="section-head">
+      <span class="label">Lonca</span>
+      <div><h2>Ağaçlar yalnız dikilmez</h2><p>Permakültürde her ana ağaç, onu besleyen bitkilerle birlikte bir lonca olarak planlanır.</p></div>
+    </div>
+    <div class="options">
+    <article class="option-card">
+      
+      <header><span class="label">Örnek lonca </span><h3>Bir zeytinin yoldaşları</h3></header>
+      <p>Zeytinin çevresine dikilecek bitkilerle küçük bir ekosistem. Her biri zeytine bir şey veriyor.</p>
+      <div class="pros-cons">
+        <div><h4>Artılar</h4><ul class="pros"><li>İğde ve bakla: azot bağlar</li><li>Biberiye, lavanta: zararlıları şaşırtır, arı çeker</li><li>Kekik, çilek: toprağı örter, nemi tutar</li><li>Karakafes otu: derinden mineral çeker, malç olur</li></ul></div>
+        <div><h4>Eksiler</h4><ul class="cons"><li>Makineli hasadı zorlaştırır</li><li>Budama ve bakım daha karmaşık</li></ul></div>
+      </div>
+      <div class="meters"><span class="meter">Maliyet <span class="dots" aria-label="5 üzerinden 2"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></span><span class="meter">Emek <span class="dots" aria-label="5 üzerinden 3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span><span class="meter">Getiri <span class="dots" aria-label="5 üzerinden 4"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></span><span class="meter">Süre <span class="dots" aria-label="5 üzerinden 3"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></span></div>
+      <p class="note">her zeytin bir lonca</p>
+    </article>
+    </div>
+  </section>
+  <section class="wrap section">
+    <div class="closing">
+      <div>
+        <span class="label">Açık sorular</span>
+        <ul class="open-questions" style="margin-top: 12px"><li>Kaç ağaçla başlamalı: 50 mi, 150 mi?</li><li>Aşılı fidan mı, tohumdan yetiştirme mi?</li><li>Yalancı akasya ve gümüş akasya istilacı olabilir, yine de dikilmeli mi?</li><li>Bölgedeki yaşlı zeytinlikleri devralmak mı, sıfırdan dikmek mi?</li></ul>
+      </div>
+      <div class="leaning-box">
+        <span class="label accent">Şu anki eğilim</span>
+        <h3 style="margin: 8px 0 10px">Zeytin, incir, nar omurgası</h3>
+        <p>Zeytin ana ürün, incir ve nar kurutma ve dükkân için, iğde azot için. Ceviz ve kestane uzak zonlara, bölge belli olunca.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>aheste.tr · herkese açık proje defteri · son güncelleme 3 Kasım 2026</span>
+    <span class="note">toprak acele etmez, biz de</span>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+<script type="module" src="assets/js/trees.js"></script>
+</body>
+</html>

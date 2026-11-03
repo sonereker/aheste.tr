@@ -1,22 +1,24 @@
 # aheste.tr
 
-Static website for Âheste, a permaculture garden in Bursa. Served with GitHub Pages at https://aheste.tr.
+Public project notebook for Âheste, a permaculture farm we are planning. Served with GitHub Pages at https://aheste.tr.
 
-## Structure
+Each page is a "note" that weighs options with pros, cons and rough scores, and ends with open questions and our current leaning.
 
-- `index.html`, `permaculture.html`, `market.html`, `cafe.html`, `visit.html`: pages
-- `data/products.json`: product catalog and stock (single source of truth)
-- `assets/css/style.css`: styles
-- `assets/js/`: `main.js` (shared, WhatsApp config), `cart.js`, `market.js`
-- `assets/images/`: generated imagery (webp)
+## Pages
 
-## Updating stock
+- `index.html`: notebook overview, decision board, table of contents, log
+- `location.html`: Bursa vs Çanakkale vs Yalova, distance to the provincial centre, weighted scoring (`assets/js/location.js`)
+- `garden.html`: garden elements (food forest, keyhole beds, swales, chickens, bees…) and the zone map
+- `trees.html`: candidate trees with filters (`assets/js/trees.js`)
+- `cafe.html`: café concepts
+- `shop.html`: shop product ideas
 
-Edit `data/products.json`. Set `stock` to one of `in_stock`, `low`, `sold_out`, `upcoming` and `quantity` to the available count. Products with `in_stock`/`low` and `quantity > 0` can be added to the cart.
+## Editing
 
-## WhatsApp orders
-
-Set `WHATSAPP_NUMBER` in `assets/js/main.js` (international format without `+`, e.g. `905xxxxxxxxx`).
+- Note status classes: `open`, `discussing`, `leaning`, `decided` (see `.status` in `assets/css/style.css`).
+- Region scores and default weights: `CRITERIA` and `REGIONS` in `assets/js/location.js`.
+- Tree data: `TREES` in `assets/js/trees.js`.
+- Zone descriptions: `ZONES` in `assets/js/main.js`.
 
 ## Local preview
 
@@ -24,4 +26,4 @@ Set `WHATSAPP_NUMBER` in `assets/js/main.js` (international format without `+`, 
 python3 -m http.server
 ```
 
-Open http://localhost:8000. Opening files directly does not work because products are loaded with `fetch`.
+Open http://localhost:8000.
