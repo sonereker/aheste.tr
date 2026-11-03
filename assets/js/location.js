@@ -2,7 +2,7 @@
 const CRITERIA = [
   { id: "olive", name: "Zeytin ve iklim uyumu", weight: 4 },
   { id: "water", name: "Su bulma kolaylığı", weight: 4 },
-  { id: "land", name: "Arsa ucuzluğu", weight: 3 },
+  { id: "land", name: "Uygun arazi fiyatı", weight: 3 },
   { id: "visitors", name: "Ziyaretçi potansiyeli", weight: 3 },
   { id: "distance", name: "İl merkezine yakınlık", weight: 3 },
   { id: "frost", name: "Don riskinin azlığı", weight: 2 },

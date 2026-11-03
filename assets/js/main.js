@@ -1,6 +1,6 @@
 const ZONES = [
-  { id: 0, title: "Ev, kafe, atölye", desc: "Her gün olduğumuz yer. Kafe, kurutma odası, sabun ve alet atölyesi buraya." },
-  { id: 1, title: "Mutfak bahçesi", desc: "Her gün toplananlar: domates, salata, aromatik otlar, solucan kompostu." },
+  { id: 0, title: "Ev, kafe, atölye", desc: "Her gün vakit geçirdiğimiz yer. Kafe, kurutma odası, sabun atölyesi ve aletlerle çalışacağımız atölye burada olsun." },
+  { id: 1, title: "Mutfak bahçesi", desc: "Her gün ürün topladığımız bölüm: domates, salatalık ve aromatik otlar. Solucan kompostu da burada." },
   { id: 2, title: "Tıbbi bitkiler ve tavuklar", desc: "Biberiye, adaçayı, kekik terasları. Belki tavuk kümesi ve arı kovanları." },
   { id: 3, title: "Zeytin ve meyve", desc: "Ana ürün alanı. Zeytin loncaları, meyve ağaçları, altında baklagiller." },
   { id: 4, title: "Yarı yabani orman", desc: "Ceviz, kestane, dut. Yılda birkaç kez uğranan, kendi başına yaşayan alan." },

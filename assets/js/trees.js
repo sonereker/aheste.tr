@@ -3,7 +3,7 @@ const TREES = [
   { name: "Zeytin · Gemlik", latin: "Olea europaea", layer: "canopy", years: "4–5", water: "low", frost: -7, fit: { bursa: "good", canakkale: "good", yalova: "ok" }, note: "Bölgenin yerli çeşidi, hem yağlık hem sofralık. Ana ürünümüz olabilir." },
   { name: "Zeytin · Ayvalık", latin: "Olea europaea", layer: "canopy", years: "5–6", water: "low", frost: -6, fit: { bursa: "ok", canakkale: "good", yalova: "ok" }, note: "Yağ verimi yüksek, Kuzey Ege'de çok iyi. Marmara'da soğuk kışlarda zorlanabilir." },
   { name: "Zeytin · Domat", latin: "Olea europaea", layer: "canopy", years: "5–6", water: "low", frost: -7, fit: { bursa: "ok", canakkale: "good", yalova: "ok" }, note: "İri sofralık çeşit, kırma ve çizik zeytin için." },
-  { name: "Ceviz", latin: "Juglans regia", layer: "canopy", years: "6–8", water: "high", frost: -25, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Kökleri juglon salgılar, altına domates ve elma dikilmez. Uzak zona." },
+  { name: "Ceviz", latin: "Juglans regia", layer: "canopy", years: "6–8", water: "high", frost: -25, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Kökleri juglon salgılar, altına domates ve elma dikilmez. Bahçenin daha uzak bölümlerine." },
   { name: "Kestane", latin: "Castanea sativa", layer: "canopy", years: "5–7", water: "medium", frost: -20, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Asidik toprak ister. Uludağ ve Kaz Dağları eteklerinde doğal olarak var." },
   { name: "Dut", latin: "Morus alba / nigra", layer: "canopy", years: "3–5", water: "medium", frost: -20, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Hızlı büyür, gölge ve tavuk yemi verir. Pekmez ve kurutma için." },
   { name: "İncir", latin: "Ficus carica", layer: "low", years: "2–3", water: "low", frost: -10, fit: { bursa: "good", canakkale: "good", yalova: "ok" }, note: "Kuru incir ve reçel için. Genç fidanlar sert ayazda donabilir." },
@@ -16,7 +16,7 @@ const TREES = [
   { name: "Gümüş akasya", latin: "Acacia dealbata", layer: "low", years: "—", water: "low", frost: -8, fit: { bursa: "ok", canakkale: "good", yalova: "good" }, note: "Azot bağlar, kış sonu çiçek açar. İstilacı olabilir, sınırlı dikilmeli." }
 ];
 
-const LAYER_NAMES = { canopy: "Tepe", low: "Alçak ağaç" };
+const LAYER_NAMES = { canopy: "Tepe", low: "Kısa boylu ağaçlar" };
 const WATER_NAMES = { low: "Az", medium: "Orta", high: "Çok" };
 const FIT_NAMES = { good: "İyi", ok: "Olur", poor: "Zor" };
 const REGION_NAMES = { bursa: "Bursa", canakkale: "Çanakkale", yalova: "Yalova" };
