@@ -11,7 +11,7 @@
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body: "Newsreader", "Iowan Old Style", Georgia, serif;
   --font-hand: "Zeyada", "Bradley Hand", cursive;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --wrap: 1120px;
   color-scheme: light;
 }
