@@ -74,6 +74,7 @@ p { margin: 0 0 14px; }
 .cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 figure { margin: 0; }
 figcaption { font-family: var(--font-mono); font-size: .75rem; color: var(--ink-soft); margin-top: 8px; letter-spacing: .04em; }
+figcaption.note { letter-spacing: 0; }
 .text-link { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
 
 /* note meta + status */
