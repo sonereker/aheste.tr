@@ -40,7 +40,7 @@ button, input, select { font: inherit; color: inherit; }
 /* header */
 .site-header { border-bottom: 1px solid var(--line); }
 .site-header .wrap { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding: 18px 0; }
-.brand { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; letter-spacing: 0.1em; text-decoration: none; }
+.brand { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; letter-spacing: 0.1em; text-decoration: none; text-transform: uppercase; }
 .site-nav { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; font-family: var(--font-mono); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; }
 .site-nav a { text-decoration: none; color: var(--ink-soft); padding: 4px 0; border-bottom: 1px solid transparent; }
 .site-nav a:hover, .site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--ink); }
