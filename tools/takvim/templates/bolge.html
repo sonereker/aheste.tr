@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% import "makrolar.html" as m %}
+{% block icerik %}
+<section class="giris tek">
+  <h1>{{ bolge.ad }} Bölgesi Ekim Dikim Takvimi</h1>
+  <p class="lede">{{ bolge.ad }} bölgesinde sebze tohumu, fide ve fidan ne zaman ekilir, dikilir, hasat edilir? {{ bolge.iller }} için ortalama tarihler.</p>
+</section>
+
+{{ m.bolge_linkleri(bolgeler, bolge.slug) }}
+
+<section class="t-kart don-kart">
+  <div><span class="etiket">Son don riski</span><strong>{{ bolge.son_don_metin }}</strong><span class="soluk kucuk">yazlık fideler bundan sonra</span></div>
+  <div><span class="etiket">İlk don riski</span><strong>{{ bolge.ilk_don_metin }}</strong><span class="soluk kucuk">hassas bitkiler bundan önce toplanır</span></div>
+  <p class="soluk kucuk">{{ bolge.not }} <span class="tahmini">tahmini</span></p>
+</section>
+
+<section class="bolum" id="cizelge">
+  <div class="bolum-bas">
+    <h2>Ekim çizelgesi</h2>
+    <div class="gorunum" role="tablist" aria-label="Görünüm" data-gorunum>
+      <button type="button" role="tab" data-gorunum-sec="ay" aria-selected="false">Bu ay</button>
+      <button type="button" role="tab" data-gorunum-sec="yil" aria-selected="true">Tüm yıl</button>
+    </div>
+  </div>
+  <div class="t-kart" data-gorunum-icerik="ay" data-bu-ay="{{ bolge.slug }}" hidden></div>
+  <div class="t-kart gantt-kart" data-gorunum-icerik="yil">
+    {{ m.cubuk_lejant() }}
+    {{ m.gantt(gantt) }}
+    <p class="soluk kucuk">* Bu bölgede açık alanda hasada yetişmesi zor; sera, örtü ya da erkenci çeşit gerekir.</p>
+  </div>
+</section>
+
+<section class="bolum">
+  <h2>Ay ay {{ bolge.ad }}</h2>
+  <div class="akordeon">
+    {% for a in aylik %}
+    <details data-ay-detay="{{ loop.index }}">
+      <summary>{{ a.ad }}</summary>
+      {{ m.is_listesi(a) }}
+      <p class="kucuk"><a href="/ay-takvimi/{{ yil }}/{{ a.slug }}/">{{ a.ad }} {{ yil }} ay takvimi: uygun günler</a></p>
+    </details>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="bolum">
+  <h2>Ay takvimine göre ekim</h2>
+  {{ m.ay_kurallari() }}
+  <p><a class="ok-link" href="/ay-takvimi/{{ yil }}/">{{ yil }} ay takvimi</a></p>
+</section>
+{% endblock %}

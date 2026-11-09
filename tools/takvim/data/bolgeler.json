@@ -1,0 +1,59 @@
+[
+  {
+    "slug": "marmara",
+    "ad": "Marmara",
+    "iller": "İstanbul, Bursa, Kocaeli, Tekirdağ, Çanakkale, Balıkesir, Yalova",
+    "son_don": "04-15",
+    "ilk_don": "11-20",
+    "not": "Kıyı ve ovalarda ılıman; Trakya içleri ve yüksek kesimlerde don 2–3 hafta daha geç biter."
+  },
+  {
+    "slug": "ege",
+    "ad": "Ege",
+    "iller": "İzmir, Aydın, Manisa, Muğla, Denizli, Uşak, Afyonkarahisar, Kütahya",
+    "son_don": "03-25",
+    "ilk_don": "12-05",
+    "not": "Tarihler kıyı ve ovalara göre. Uşak, Afyon ve Kütahya gibi iç kesimlerde İç Anadolu takvimi daha yakındır."
+  },
+  {
+    "slug": "akdeniz",
+    "ad": "Akdeniz",
+    "iller": "Antalya, Mersin, Adana, Hatay, Osmaniye, Kahramanmaraş, Isparta, Burdur",
+    "son_don": "03-01",
+    "ilk_don": "12-31",
+    "ilk_don_etiket": "kıyıda nadir",
+    "not": "Kıyıda don nadirdir, kışın da sebze yetişir; yaz sıcağı asıl sınırlayıcıdır. Isparta ve Burdur için İç Anadolu takvimini kullanın."
+  },
+  {
+    "slug": "ic-anadolu",
+    "ad": "İç Anadolu",
+    "iller": "Ankara, Konya, Kayseri, Eskişehir, Sivas, Yozgat, Aksaray, Niğde",
+    "son_don": "05-10",
+    "ilk_don": "10-10",
+    "not": "Karasal iklim: geç don Mayıs ortasına kadar sürebilir, yazlık fideler için Mayıs'ın ikinci yarısını bekleyin."
+  },
+  {
+    "slug": "karadeniz",
+    "ad": "Karadeniz",
+    "iller": "Samsun, Trabzon, Ordu, Giresun, Rize, Zonguldak, Kastamonu, Sinop",
+    "son_don": "04-05",
+    "ilk_don": "11-30",
+    "not": "Kıyı şeridi ılıman ve yağışlı; iç kesimler ve yaylalar (Kastamonu, Gümüşhane, Bayburt) çok daha soğuktur."
+  },
+  {
+    "slug": "dogu-anadolu",
+    "ad": "Doğu Anadolu",
+    "iller": "Erzurum, Van, Malatya, Elazığ, Kars, Ağrı, Erzincan, Muş",
+    "son_don": "05-25",
+    "ilk_don": "09-25",
+    "not": "Yetişme mevsimi kısa: yüksek yaylalarda don Haziran'a kadar sürebilir. Malatya ve Elazığ ovalarında 2–3 hafta erken başlanabilir."
+  },
+  {
+    "slug": "guneydogu-anadolu",
+    "ad": "Güneydoğu Anadolu",
+    "iller": "Gaziantep, Şanlıurfa, Diyarbakır, Mardin, Batman, Adıyaman, Siirt, Kilis",
+    "son_don": "04-01",
+    "ilk_don": "11-10",
+    "not": "Yazlar çok sıcak ve kurak; serin mevsim sebzeleri ilkbaharda erken, sonbaharda geç ekilmeli."
+  }
+]

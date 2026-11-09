@@ -1,0 +1,14 @@
+[
+  { "bas": "12-22", "bit": "01-30", "ad": "Erbain", "aciklama": "Kışın en sert 40 günü. İçindeki en soğuk günlere Zemheri denir." },
+  { "bas": "01-31", "bit": "03-21", "ad": "Hamsin", "aciklama": "Erbain'den sonraki 50 gün; kış yavaş yavaş gevşer." },
+  { "sira": "02-20", "etiket": "19–20 Şub", "ad": "Cemre havaya düşer", "aciklama": "Havalar yumuşamaya başlar. Domates, biber ve patlıcan tohumlarını viyole ekme zamanı gelir." },
+  { "sira": "02-27", "etiket": "26–27 Şub", "ad": "Cemre suya düşer", "aciklama": "Sular ısınır, ağaçlarda öz su yürümeye başlar. Kış budaması ve tomurcuk kabarmadan yapılan kış ilaçlaması bitirilir." },
+  { "sira": "03-06", "etiket": "5–6 Mar", "ad": "Cemre toprağa düşer", "aciklama": "Toprak uyanır. Bellemek, gübrelemek ve bezelye, ıspanak, turp gibi erken ekimler için işaret." },
+  { "bas": "03-11", "bit": "03-17", "ad": "Kocakarı soğuğu", "aciklama": "Mart ortasında dönen kısa soğuk dalgası. Erken dikilen fideleri örtüyle koruyun." },
+  { "bas": "03-21", "ad": "Nevruz", "aciklama": "Baharın gelişi; eski halk takviminde yılın başı." },
+  { "sira": "04-08", "etiket": "7–8 Nis", "ad": "Kırlangıç fırtınası", "aciklama": "Kırlangıçların döndüğü günlerde esen fırtına. Genç fidanları herekle destekleyin." },
+  { "bas": "05-06", "ad": "Hıdırellez", "aciklama": "Halk takviminde yazın başlangıcı (Rûz-ı Hızır). Yazlık fidelerin toprağa dikilmesi için geleneksel işaret." },
+  { "bas": "07-31", "bit": "08-07", "ad": "Eyyam-ı bahur", "aciklama": "Yılın en sıcak, bunaltıcı günleri. Sulamayı sabah erken ya da akşam yapın, toprağı malçla örtün." },
+  { "sira": "10-15", "etiket": "Ekim – Kasım", "ad": "Pastırma yazı", "aciklama": "Sonbaharda dönen ılık, güneşli günler. Sarımsak, bakla ve soğan dikimi için iyi zaman." },
+  { "bas": "11-08", "ad": "Kasım günü", "aciklama": "Halk takviminde kışın başlangıcı (Rûz-ı Kasım). Ağaç dikimi ve kışlık işler başlar." }
+]
