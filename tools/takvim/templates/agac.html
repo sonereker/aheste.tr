@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "makrolar.html" as m %}
+{% block icerik %}
+<section class="giris tek">
+  <h1>Fidan Ne Zaman Dikilir? Ağaç Taşıma, Budama ve Aşı Zamanı</h1>
+  <p class="lede">Meyve fidanı dikimi, ağaç taşıma, kış budaması ve aşı için bölgelere göre en uygun dönemler. Ay takvimine göre dikim, taşıma ve budama küçülen ayda, aşı büyüyen ayda yapılır.</p>
+  <ul class="cipler icindekiler">{% for a in isler %}<li><a href="#{{ a.slug }}">{{ a.ad }}</a></li>{% endfor %}</ul>
+</section>
+
+{{ m.bolge_sekmeleri(bolgeler) }}
+
+{% for a in isler %}
+<section class="bolum" id="{{ a.slug }}">
+  <div class="t-kart">
+    <div class="is-bas">
+      <img src="/assets/images/takvim/agac.webp" alt="" width="56" height="56" loading="lazy">
+      <div>
+        <h2>{{ a.ad }}</h2>
+        <p class="kural-mini">Ay takvimi: <strong>{{ a.evre_ad }} ay</strong></p>
+      </div>
+    </div>
+    <p>{{ a.aciklama }}</p>
+    <div class="mini-gantt etiketli">
+      {{ m.aylar_seridi(aylar_baslik) }}
+      {% for s in a.satirlar %}
+      <div class="g-satir"><span class="g-ad">{{ s.bolge.ad }}</span>{{ m.iz(s.cubuklar) }}</div>
+      {% endfor %}
+    </div>
+    {% for s in a.satirlar %}
+    <div class="uygun" data-bolge-icerik="{{ s.bolge.slug }}">
+      <p class="kucuk"><strong>{{ s.bolge.ad }}:</strong> {{ s.araliklar|join(" ve ") }}</p>
+      {% if s.gunler %}
+      <p class="kucuk soluk">{{ yil }} içinde uygun günler ({{ a.evre_ad }} ay, yeniay ve dolunay hariç):</p>
+      <ul class="gun-cipleri">{% for g in s.gunler %}<li><span>{{ g.ay }}</span> {{ g.gunler }}</li>{% endfor %}</ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endfor %}
+
+<section class="bolum">
+  <h2>Ay takvimine göre bahçe işleri</h2>
+  {{ m.ay_kurallari() }}
+</section>
+{% endblock %}

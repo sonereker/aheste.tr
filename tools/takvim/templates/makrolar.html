@@ -1,0 +1,107 @@
+{% macro ay_karti(k, baslik_seviye="h3", buyuk=false) %}
+<article class="ay-kart{% if buyuk %} buyuk{% endif %}" data-ay="{{ k.ay }}" data-yil="{{ k.yil }}" id="ay-{{ k.slug }}">
+  <{{ baslik_seviye }} class="ay-baslik">{% if not buyuk %}<a href="{{ k.url }}">{{ k.ad }} <span>{{ k.yil }}</span></a>{% else %}{{ k.ad }} <span>{{ k.yil }}</span>{% endif %}</{{ baslik_seviye }}>
+  <div class="hafta" aria-hidden="true"><span>Pt</span><span>Sa</span><span>Ça</span><span>Pe</span><span>Cu</span><span>Ct</span><span>Pz</span></div>
+  <div class="gunler">
+    {% for i in range(k.bos) %}<span class="bos"></span>{% endfor %}
+    {% for h in k.hucreler %}<button type="button" class="{{ h.sinif }}" data-d="{{ h.iso }}" aria-label="{{ h.aria }}"><span class="n">{{ h.gun }}</span>{% if h.evre %}<i class="f f-{{ h.evre }}"></i>{% endif %}</button>{% endfor %}
+  </div>
+</article>
+{% endmacro %}
+
+{% macro lejant() %}
+<ul class="lejant" aria-label="Renklerin anlamı">
+  <li><i class="kutu e-kok"></i>Kök günü</li>
+  <li><i class="kutu e-yaprak"></i>Yaprak günü</li>
+  <li><i class="kutu e-cicek"></i>Çiçek günü</li>
+  <li><i class="kutu e-meyve"></i>Meyve günü</li>
+  <li><i class="kutu yok"></i>Ekim yok</li>
+  <li><i class="ok b"></i>Büyüyen ay</li>
+  <li><i class="ok k"></i>Küçülen ay</li>
+  <li><i class="f f-yeni"></i>Yeniay</li>
+  <li><i class="f f-ilk"></i>İlk dördün</li>
+  <li><i class="f f-dolun"></i>Dolunay</li>
+  <li><i class="f f-son"></i>Son dördün</li>
+  <li><i class="kutu tut"></i>Tutulma</li>
+</ul>
+{% endmacro %}
+
+{% macro cubuk_lejant() %}
+<ul class="lejant" aria-label="Çubukların anlamı">
+  <li><i class="cizgi c-viyol"></i>Viyolde tohum</li>
+  <li><i class="cizgi c-acik"></i>Açığa tohum</li>
+  <li><i class="cizgi c-dikim"></i>Fide / fidan dikimi</li>
+  <li><i class="cizgi c-hasat"></i>Hasat</li>
+  <li><i class="cizgi c-bakim"></i>Ağaç bakımı</li>
+</ul>
+{% endmacro %}
+
+{% macro aylar_seridi(aylar) %}
+<div class="g-aylar" aria-hidden="true"><span class="g-ad"></span><div class="g-iz">{% for a in aylar %}<span style="left:{{ a.sol }}%;width:{{ a.gen }}%">{{ a.kisa }}</span>{% endfor %}</div></div>
+{% endmacro %}
+
+{% macro iz(cubuklar) %}
+<div class="g-iz">{% for c in cubuklar %}<span class="c c-{{ c.tur }} s-{{ c.serit }}" style="left:{{ c.sol }}%;width:{{ c.gen }}%" title="{{ c.etiket }}"></span>{% endfor %}<span class="sr">{{ cubuklar|map(attribute="etiket")|unique|join("; ") }}</span></div>
+{% endmacro %}
+
+{% macro gantt(g) %}
+<div class="gantt">
+  {{ aylar_seridi(g.aylar) }}
+  {% for grup in g.gruplar %}
+  <div class="g-grup">{{ grup.ad }}</div>
+  {% for s in grup.satirlar %}
+  <div class="g-satir">
+    <a class="g-ad" href="{{ s.url }}">{{ s.ad }}{% if s.eksik %} <span class="zor" title="Bu bölgede açık alanda zor">*</span>{% endif %}</a>
+    {{ iz(s.cubuklar) }}
+  </div>
+  {% endfor %}
+  {% endfor %}
+  <div class="g-isaretler" aria-hidden="true"><span class="g-ad"></span><div class="g-iz">{% for i in g.isaretler %}<span style="left:{{ i.sol }}%">{{ i.metin }}</span>{% endfor %}</div></div>
+</div>
+{% endmacro %}
+
+{% macro bolge_sekmeleri(bolgeler, baslik="Bölge seçin") %}
+<div class="sekmeler" role="tablist" aria-label="{{ baslik }}" data-bolge-sekme>
+  {% for b in bolgeler %}<button type="button" role="tab" data-bolge="{{ b.slug }}" aria-selected="false">{{ b.ad }}</button>{% endfor %}
+</div>
+{% endmacro %}
+
+{% macro bolge_linkleri(bolgeler, secili=None) %}
+<nav class="sekmeler" aria-label="Bölgeler">
+  {% for b in bolgeler %}<a href="/ay-takvimi/{{ b.slug }}/"{% if b.slug == secili %} aria-current="page"{% endif %}>{{ b.ad }}</a>{% endfor %}
+</nav>
+{% endmacro %}
+
+{% macro is_listesi(veri) %}
+{% if veri.isler or veri.agac %}
+<dl class="isler">
+  {% for tur, kalemler in veri.isler %}
+  <div><dt>{{ tur }}</dt><dd>{% for k in kalemler %}<a href="{{ k.url }}">{{ k.ad }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>
+  {% endfor %}
+  {% if veri.agac %}<div><dt>Ağaç ve fidan</dt><dd>{% for k in veri.agac %}<a href="{{ k.url }}">{{ k.ad }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</dd></div>{% endif %}
+</dl>
+{% else %}
+<p class="soluk">Bu ayda bu bölgede ekim ya da dikim işi yok; toprak dinlenir.</p>
+{% endif %}
+{% endmacro %}
+
+{% macro ay_kurallari() %}
+<div class="kurallar">
+  <div class="t-kart">
+    <h3>Büyüyen ay ve küçülen ay</h3>
+    <p><strong class="renk-b">Büyüyen ay</strong> (yeniaydan dolunaya): toprak üstünde ürün veren bitkilerin ekimi ve dikimi, aşı, çim ekimi.</p>
+    <p><strong class="renk-k">Küçülen ay</strong> (dolunaydan yeniaya): kök ve yumrular, ağaç dikimi ve taşıma, budama, gübre, ot temizliği, saklanacak ürünün hasadı.</p>
+    <p><strong class="renk-k">Ekim yapılmaz:</strong> yeniay ve dolunay günleri ile tutulma günleri.</p>
+  </div>
+  <div class="t-kart">
+    <h3>Kök, yaprak, çiçek, meyve günleri</h3>
+    <ul class="element-listesi">
+      <li><img src="/assets/images/takvim/kok.webp" alt="" width="48" height="48" loading="lazy"><span><strong>Kök günü:</strong> havuç, turp, pancar, patates, soğan, sarımsak</span></li>
+      <li><img src="/assets/images/takvim/yaprak.webp" alt="" width="48" height="48" loading="lazy"><span><strong>Yaprak günü:</strong> marul, ıspanak, lahana, pırasa, maydanoz, fesleğen</span></li>
+      <li><img src="/assets/images/takvim/cicek.webp" alt="" width="48" height="48" loading="lazy"><span><strong>Çiçek günü:</strong> brokoli, karnabahar, çiçekler, şifalı bitkiler</span></li>
+      <li><img src="/assets/images/takvim/meyve.webp" alt="" width="48" height="48" loading="lazy"><span><strong>Meyve günü:</strong> domates, biber, salatalık, kabak, fasulye, bezelye, meyve ağaçları</span></li>
+    </ul>
+    <p class="soluk kucuk">Ay'ın bulunduğu burca göre belirlenir: ateş burçları meyve, toprak burçları kök, hava burçları çiçek, su burçları yaprak günüdür.</p>
+  </div>
+</div>
+{% endmacro %}

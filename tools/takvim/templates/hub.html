@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% import "makrolar.html" as m %}
+{% block icerik %}
+<section class="giris">
+  <div>
+    <h1>Ay Takvimi ve Ekim Dikim Takvimi</h1>
+    <p class="lede">Hangi gün ne ekilir, fide ne zaman dikilir, ağaç ne zaman taşınır? Türkiye'nin 7 bölgesi için sebze ekim çizelgesi ve {{ yil }} ay takvimine göre kök, yaprak, çiçek ve meyve günleri.</p>
+  </div>
+  <img class="bant" src="/assets/images/takvim/baslik.webp" alt="Topraktan yükselen sebze fideleri ve üstünde ince bir hilal" width="1600" height="533">
+</section>
+
+<section class="t-kart bugun-kart" data-bugun hidden>
+  <p class="etiket">Bugün</p>
+  <div data-bugun-icerik></div>
+</section>
+
+<section class="bolum" id="bu-ay">
+  <h2>Bu ay ne ekilir?</h2>
+  {{ m.bolge_sekmeleri(bolgeler) }}
+  <div class="t-kart" data-bu-ay>
+    <noscript><p>Ay ay listeler için: {% for s in AY_SLUG %}<a href="/ay-takvimi/{{ yil }}/{{ s }}/">{{ AYLAR[loop.index0] }}</a>{% if not loop.last %} · {% endif %}{% endfor %}</p></noscript>
+  </div>
+</section>
+
+<section class="bolum" id="takvim">
+  <div class="bolum-bas">
+    <h2>{{ yil }} ay takvimi</h2>
+    <a class="ok-link" href="/ay-takvimi/{{ yil }}/">Tüm yıl ve dolunay tarihleri</a>
+  </div>
+  {{ m.lejant() }}
+  <div class="aylar-kaydir" data-kaydir>
+    <button type="button" class="kaydir-btn onceki" data-kaydir-yon="-1" aria-label="Önceki ay">‹</button>
+    <div class="aylar">{% for k in aylar %}{{ m.ay_karti(k) }}{% endfor %}</div>
+    <button type="button" class="kaydir-btn sonraki" data-kaydir-yon="1" aria-label="Sonraki ay">›</button>
+  </div>
+  <p class="soluk kucuk ipucu">Bir güne dokunun: o günün ay evresi ve ne yapılacağı açılır.</p>
+</section>
+
+<section class="bolum" id="bolgeler">
+  <h2>Bölgelere göre ekim takvimi</h2>
+  <ul class="kartlar">
+    {% for b in bolgeler %}
+    <li><a class="t-kart bolge-kart" href="/ay-takvimi/{{ b.slug }}/">
+      <strong>{{ b.ad }}</strong>
+      <span class="soluk kucuk">{{ b.iller }}</span>
+      <span class="don">Son don {{ b.son_don_metin }} · İlk don {{ b.ilk_don_metin }}</span>
+    </a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="bolum" id="bitkiler">
+  <h2>Bitkiler: ne zaman ekilir?</h2>
+  {% for g in gruplar %}
+  <h3 class="grup-baslik">{{ g.ad }}</h3>
+  <ul class="cipler">
+    {% for b in bitkiler if b.grup == g.slug %}<li><a href="/ay-takvimi/{{ b.slug }}/"><i class="nokta e-{{ b.element }}"></i>{{ b.ad }}</a></li>{% endfor %}
+  </ul>
+  {% endfor %}
+  <h3 class="grup-baslik">Ağaç ve fidan</h3>
+  <ul class="cipler">
+    {% for a in agac %}<li><a href="/ay-takvimi/agac-dikimi/#{{ a.slug }}"><img src="/assets/images/takvim/agac.webp" alt="" width="20" height="20">{{ a.ad }}</a></li>{% endfor %}
+  </ul>
+</section>
+
+<section class="bolum">
+  <h2>Ay takvimi nasıl okunur?</h2>
+  {{ m.ay_kurallari() }}
+</section>
+
+<section class="bolum">
+  <h2>Yıllar ve önemli günler</h2>
+  <ul class="cipler">
+    {% for y in yillar %}
+    <li><a href="/ay-takvimi/{{ y }}/">{{ y }} ay takvimi</a></li>
+    <li><a href="/ay-takvimi/{{ y }}/onemli-gunler/">{{ y }} cemre, Hıdırellez, tutulmalar</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

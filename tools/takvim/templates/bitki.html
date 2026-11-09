@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% import "makrolar.html" as m %}
+{% block icerik %}
+<section class="giris tek">
+  <h1>{{ bitki.ad }} Ne Zaman Ekilir?</h1>
+  <p class="lede">{{ bitki.ipucu }}</p>
+  <p class="kural"><img src="/assets/images/takvim/{{ bitki.element }}.webp" alt="" width="40" height="40"><span>Ay takvimine göre en uygun gün: <strong>{{ kural_metni }}</strong></span></p>
+  <dl class="pencereler bilgi">
+    <div><dt>Ekim derinliği</dt><dd>{{ bilgi.derinlik }}</dd></div>
+    <div><dt>Sıra arası × üzeri</dt><dd>{{ bilgi.aralik }}</dd></div>
+    <div><dt>Çimlenme</dt><dd>{{ bilgi.cimlenme }}</dd></div>
+    <div><dt>Hasat</dt><dd>{{ bilgi.hasat }}</dd></div>
+  </dl>
+</section>
+
+<section class="bolum">
+  <h2>Bölgelere göre {{ bitki.ad|lower }} ekim zamanı</h2>
+  {{ m.bolge_sekmeleri(bolgeler) }}
+  {% for v in bolge_veri %}
+  <div class="t-kart bitki-bolge" data-bolge-icerik="{{ v.bolge.slug }}">
+    <h3 class="kart-baslik"><a href="/ay-takvimi/{{ v.bolge.slug }}/">{{ v.bolge.ad }}</a></h3>
+    {% if v.pencereler %}
+    <dl class="pencereler">
+      {% for p in v.pencereler %}<div><dt>{{ p.tur }}</dt><dd>{{ p.aralik }}</dd></div>{% endfor %}
+    </dl>
+    <div class="mini-gantt">
+      {{ m.aylar_seridi(aylar_baslik) }}
+      <div class="g-satir">{{ m.iz(v.cubuklar) }}</div>
+    </div>
+    {% endif %}
+    {% if v.eksik %}<p class="uyari">Bu bölgede açık alanda hasada yetişmesi zor; sera, örtü ya da erkenci çeşit gerekir.</p>{% endif %}
+    {% if v.uygun %}
+    <h4>{{ yil }} ay takvimine göre uygun günler</h4>
+    {% for u in v.uygun %}
+    <div class="uygun">
+      <p class="kucuk"><strong>{{ u.tur }}</strong> · {{ u.aralik }}{% if u.yedek %} <span class="soluk">(bu aralıkta {{ kural_metni|lower }} denk gelmiyor; {{ ELEMENT_AD[bitki.element]|lower }} günleri listelendi)</span>{% endif %}</p>
+      {% if u.gunler %}<ul class="gun-cipleri">{% for g in u.gunler %}<li><span>{{ g.ay }}</span> {{ g.gunler }}</li>{% endfor %}</ul>{% else %}<p class="soluk kucuk">Bu aralıkta uygun gün yok.</p>{% endif %}
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+  {% endfor %}
+  {{ m.cubuk_lejant() }}
+</section>
+
+<section class="bolum sss">
+  <h2>Sık sorulanlar</h2>
+  {% for q in sss %}
+  <h3>{{ q.s }}</h3>
+  <p>{{ q.c }}</p>
+  {% endfor %}
+</section>
+
+{% if benzer %}
+<section class="bolum">
+  <h2>Benzer bitkiler</h2>
+  <ul class="cipler">{% for b in benzer %}<li><a href="/ay-takvimi/{{ b.slug }}/"><i class="nokta e-{{ b.element }}"></i>{{ b.ad }}</a></li>{% endfor %}</ul>
+</section>
+{% endif %}
+{% endblock %}

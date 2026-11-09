@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% import "makrolar.html" as m %}
+{% block icerik %}
+<section class="giris tek">
+  <h1>{{ ay_ad }} {{ yil }} Ay Takvimi</h1>
+  <p class="lede">{{ ay_ad }} {{ yil }} için gün gün ay evresi, kök, yaprak, çiçek ve meyve günleri; {{ ay_ad }} ayında bölgenize göre ne ekilir, ne dikilir, ne hasat edilir.</p>
+</section>
+
+<div class="ay-duzen">
+  <section class="bolum">
+    {{ m.ay_karti(kart, "h2", buyuk=true) }}
+    {{ m.lejant() }}
+    {% if olaylar %}
+    <ul class="evreler">
+      {% for o in olaylar %}<li><i class="f f-{{ o.evre }}"></i>{{ EVRE_AD[o.evre] }} · {{ o.zaman.day }} {{ AYLAR[o.zaman.month - 1] }} {{ "%02d:%02d"|format(o.zaman.hour, o.zaman.minute) }}{% if o.tutulma %} · <strong class="renk-k">{{ o.tutulma }}</strong>{% endif %}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+
+  <section class="bolum" id="ne-ekilir">
+    <h2>{{ ay_ad }} ayında ne ekilir?</h2>
+    {{ m.bolge_sekmeleri(bolgeler) }}
+    {% for b in bolgeler %}
+    <div class="t-kart" data-bolge-icerik="{{ b.slug }}">
+      <h3 class="kart-baslik"><a href="/ay-takvimi/{{ b.slug }}/">{{ b.ad }}</a></h3>
+      {{ m.is_listesi(isler[b.slug]) }}
+    </div>
+    {% endfor %}
+    {% if onemli %}
+    <h3 class="grup-baslik">{{ ay_ad }} ayının önemli günleri</h3>
+    <ul class="zaman-cizgisi">
+      {% for h in onemli %}<li class="z-{{ h.tur }}"><span class="z-tarih">{{ h.tarih }}</span><strong>{{ h.ad }}</strong><span class="soluk">{{ h.aciklama }}</span></li>{% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+</div>
+
+<section class="bolum">
+  <h2>Gün gün {{ ay_ad }} {{ yil }}</h2>
+  <ol class="gun-listesi">
+    {% for g in liste %}
+    <li class="{% if g.engel %}engel{% else %}e-{{ g.element }}{% endif %}" data-d="{{ g.tarih.isoformat() }}">
+      <span class="gl-tarih"><strong>{{ g.gun }}</strong> {{ g.hafta }}</span>
+      <span class="gl-ay">{% if g.evre %}<i class="f f-{{ g.evre }}"></i> {{ EVRE_AD[g.evre] }}{% else %}<i class="ok {{ 'b' if g.buyuyen else 'k' }}"></i> {{ "Büyüyen ay" if g.buyuyen else "Küçülen ay" }}{% endif %}{% if g.tutulma %} · {{ g.tutulma }}{% endif %} · {{ g.element_ad }} günü</span>
+      <span class="gl-tavsiye">{{ g.tavsiye }}</span>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+
+<nav class="ay-gezinti" aria-label="Aylar">
+  {% if onceki %}<a href="{{ onceki.url }}" rel="prev">‹ {{ onceki.ad }}</a>{% else %}<span></span>{% endif %}
+  <a href="/ay-takvimi/{{ yil }}/">{{ yil }}</a>
+  {% if sonraki %}<a href="{{ sonraki.url }}" rel="next">{{ sonraki.ad }} ›</a>{% else %}<span></span>{% endif %}
+</nav>
+{% endblock %}

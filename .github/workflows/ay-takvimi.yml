@@ -1,0 +1,37 @@
+name: Ay takvimi
+
+# Her yıl 1 Kasım'da bu yılın ve gelecek yılın sayfalarını üretir; elle de çalıştırılabilir.
+on:
+  schedule:
+    - cron: "0 3 1 11 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - name: Sayfaları üret
+        run: uv run tools/takvim/build.py
+      - name: Bağlantıları denetle
+        run: python3 tools/takvim/kontrol.py
+      - name: Değişiklikleri kaydet
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ay-takvimi assets/data sitemap.xml robots.txt
+          if git diff --cached --quiet; then
+            echo "Değişiklik yok"
+            exit 0
+          fi
+          git commit -m "Update moon calendar pages"
+          git push
+          # GITHUB_TOKEN ile yapılan push Pages yayınını tetiklemeyebilir; yayını açıkça iste.
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% import "makrolar.html" as m %}
+{% block icerik %}
+<section class="giris tek">
+  <h1>{{ yil }} Ay Takvimi</h1>
+  <p class="lede">{{ yil }} yılının her günü için ay evresi ile kök, yaprak, çiçek ve meyve günleri. Renkli günler o gün hangi tür bitkinin ekileceğini, gri günler ekim yapılmayacak yeniay, dolunay ve tutulma günlerini gösterir.</p>
+</section>
+
+<section class="t-kart bugun-kart" data-bugun hidden>
+  <p class="etiket">Bugün</p>
+  <div data-bugun-icerik></div>
+</section>
+
+<section class="bolum">
+  {{ m.lejant() }}
+  <div class="aylar-kaydir" data-kaydir>
+    <button type="button" class="kaydir-btn onceki" data-kaydir-yon="-1" aria-label="Önceki ay">‹</button>
+    <div class="aylar">{% for k in aylar %}{{ m.ay_karti(k, "h2") }}{% endfor %}</div>
+    <button type="button" class="kaydir-btn sonraki" data-kaydir-yon="1" aria-label="Sonraki ay">›</button>
+  </div>
+  <p class="soluk kucuk ipucu">Bir güne dokunun: o günün ay evresi ve ne yapılacağı açılır. Gün gün liste için ayın adına tıklayın.</p>
+</section>
+
+<section class="bolum">
+  <h2>{{ yil }} yeniay ve dolunay tarihleri</h2>
+  <div class="tablo-sar">
+    <table class="tablo">
+      <thead><tr><th>Tarih</th><th>Saat</th><th>Evre</th></tr></thead>
+      <tbody>
+        {% for o in ana %}
+        <tr{% if o.tutulma %} class="tutulma"{% endif %}><td>{{ o.zaman.day }} {{ AYLAR[o.zaman.month - 1] }}</td><td class="sayi">{{ "%02d:%02d"|format(o.zaman.hour, o.zaman.minute) }}</td><td><i class="f f-{{ o.evre }}"></i> {{ EVRE_AD[o.evre] }}{% if o.tutulma %} · <strong>{{ o.tutulma }}</strong>{% endif %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p><a class="ok-link" href="/ay-takvimi/{{ yil }}/onemli-gunler/">{{ yil }} cemre, Hıdırellez, ekinoks ve gündönümü tarihleri</a></p>
+</section>
+
+<section class="bolum">
+  <h2>Ay ay {{ yil }}</h2>
+  <ul class="cipler">{% for s in AY_SLUG %}<li><a href="/ay-takvimi/{{ yil }}/{{ s }}/">{{ AYLAR[loop.index0] }} {{ yil }}</a></li>{% endfor %}</ul>
+</section>
+
+<section class="bolum">
+  <h2>Ay takvimi nasıl okunur?</h2>
+  {{ m.ay_kurallari() }}
+</section>
+{% endblock %}

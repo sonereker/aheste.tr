@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block icerik %}
+<section class="giris tek">
+  <h1>{{ yil }} Önemli Günler: Cemre, Hıdırellez ve Tutulmalar</h1>
+  <p class="lede">Halk takviminin bahçe işlerine yön veren günleri, {{ yil }} ekinoks ve gündönümü anları ile tutulmalar. Cemre önce havaya, sonra suya, en son toprağa düşer.</p>
+</section>
+
+<section class="bolum">
+  <ul class="zaman-cizgisi">
+    {% for h in olaylar %}<li class="z-{{ h.tur }}"><span class="z-tarih">{{ h.tarih }}</span><strong>{{ h.ad }}</strong><span class="soluk">{{ h.aciklama }}</span></li>{% endfor %}
+  </ul>
+  <p class="soluk kucuk">Halk takvimindeki günler gelenekseldir; yıldan yıla bir gün oynayabilir. Ekinoks, gündönümü ve tutulma saatleri Türkiye saatine göredir.</p>
+</section>
+
+<section class="bolum">
+  <h2>{{ yil }} yeniay ve dolunay tarihleri</h2>
+  <div class="tablo-sar">
+    <table class="tablo">
+      <thead><tr><th>Tarih</th><th>Saat</th><th>Evre</th></tr></thead>
+      <tbody>
+        {% for o in ana %}
+        <tr{% if o.tutulma %} class="tutulma"{% endif %}><td>{{ o.zaman.day }} {{ AYLAR[o.zaman.month - 1] }}</td><td class="sayi">{{ "%02d:%02d"|format(o.zaman.hour, o.zaman.minute) }}</td><td><i class="f f-{{ o.evre }}"></i> {{ EVRE_AD[o.evre] }}{% if o.tutulma %} · <strong>{{ o.tutulma }}</strong>{% endif %}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p><a class="ok-link" href="/ay-takvimi/{{ yil }}/">{{ yil }} ay takvimi</a></p>
+</section>
+{% endblock %}
