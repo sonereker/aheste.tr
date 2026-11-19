@@ -11,12 +11,18 @@ const TREES = [
   { name: "Badem", latin: "Prunus dulcis", layer: "low", years: "3–4", water: "low", frost: -15, fit: { bursa: "ok", canakkale: "good", yalova: "poor" }, note: "Erken çiçek açar, geç don çiçeği yakar. Nemli iklimde hastalanır." },
   { name: "Ayva", latin: "Cydonia oblonga", layer: "low", years: "3–4", water: "medium", frost: -20, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Kafe tatlıları ve reçel için. Ateş yanıklığına dikkat." },
   { name: "Keçiboynuzu", latin: "Ceratonia siliqua", layer: "low", years: "6–8", water: "low", frost: -5, fit: { bursa: "poor", canakkale: "ok", yalova: "poor" }, note: "Soğuğa hassas. Ancak denize yakın, korunaklı bir yamaçta denenebilir." },
-  { name: "İğde", latin: "Elaeagnus angustifolia", layer: "low", years: "3–4", water: "low", frost: -30, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Azot bağlar, rüzgâr kırıcı olur, arılar sever. Zeytin loncasının yardımcısı." },
+  { name: "İğde", latin: "Elaeagnus angustifolia", layer: "low", years: "3–4", water: "low", frost: -30, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Azot bağlar, rüzgâr kırıcı olur, arılar sever. Zeytin loncasının yardımcısı. Unlu meyvesi kurutulur, çiçeği çok kokuludur." },
   { name: "Yalancı akasya", latin: "Robinia pseudoacacia", layer: "canopy", years: "—", water: "low", frost: -30, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Azot bağlar, çok iyi bal ağacı. Ama hızlı yayılır, kontrol gerekir." },
-  { name: "Gümüş akasya", latin: "Acacia dealbata", layer: "low", years: "—", water: "low", frost: -8, fit: { bursa: "ok", canakkale: "good", yalova: "good" }, note: "Azot bağlar, kış sonu çiçek açar. İstilacı olabilir, sınırlı dikilmeli." }
+  { name: "Gümüş akasya", latin: "Acacia dealbata", layer: "low", years: "—", water: "low", frost: -8, fit: { bursa: "ok", canakkale: "good", yalova: "good" }, note: "Azot bağlar, kış sonu çiçek açar. İstilacı olabilir, sınırlı dikilmeli." },
+  { name: "Alıç", latin: "Crataegus monogyna / orientalis", layer: "low", years: "3–5", water: "low", frost: -30, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Yerli, kurağa ve ayaza dayanıklı. Çiçek ve yaprağından kalp çayı, meyvesinden pekmez ve marmelat. Gülgillerden, ateş yanıklığına dikkat." },
+  { name: "Kızılcık", latin: "Cornus mas", layer: "low", years: "3–5", water: "medium", frost: -30, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Şubatta açar, arılar için yılın ilk besini. Yüz yıl yaşar. Marmelat, şerbet, pestil. İki fidan yan yana daha çok meyve verir." },
+  { name: "Kuşburnu", latin: "Rosa canina", layer: "shrub", years: "2–3", water: "low", frost: -30, fit: { bursa: "good", canakkale: "good", yalova: "good" }, note: "Dikenli çit olur, C vitamini çok yüksek. Marmelat ve çay, dükkân için. Kökten sürgün verir, ateş yanıklığına dikkat." },
+  { name: "Gilaboru", latin: "Viburnum opulus", layer: "shrub", years: "3–4", water: "high", frost: -35, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Nemli toprak ve yarı gölge sever: hendek boyu ve su toplanan yerler için. Suyu fermente edilir, çiğ meyvesi çok yenmez." },
+  { name: "Aronya", latin: "Aronia melanocarpa", layer: "shrub", years: "2–3", water: "medium", frost: -35, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Antosiyanini çok yüksek bir “süper besin”. Kendine döller, hastalıklara dayanıklı. Buruk meyvesi reçel, kurutma ve sirke için." },
+  { name: "Mürver", latin: "Sambucus nigra", layer: "shrub", years: "2–3", water: "medium", frost: -30, fit: { bursa: "good", canakkale: "ok", yalova: "good" }, note: "Çiçeğinden şerbet, meyvesinden şurup. Meyvesi pişirilmeden yenmez; yaprak, sap ve ham meyve zehirlidir. Kuşlar ve arılar sever." }
 ];
 
-const LAYER_NAMES = { canopy: "Tepe", low: "Kısa boylu ağaçlar" };
+const LAYER_NAMES = { canopy: "Tepe", low: "Kısa boylu ağaçlar", shrub: "Çalılar" };
 const WATER_NAMES = { low: "Az", medium: "Orta", high: "Çok" };
 const FIT_NAMES = { good: "İyi", ok: "Olur", poor: "Zor" };
 const REGION_NAMES = { bursa: "Bursa", canakkale: "Çanakkale", yalova: "Yalova" };
@@ -43,8 +49,8 @@ function render() {
       <td class="num">${t.frost}°C</td>
       ${Object.keys(REGION_NAMES).map(r => `<td><span class="fit ${t.fit[r]}">${FIT_NAMES[t.fit[r]]}</span></td>`).join("")}
       <td class="small">${t.note}</td>
-    </tr>`).join("") || `<tr><td colspan="9" class="muted">Bu filtrelere uyan ağaç yok.</td></tr>`;
-  count.textContent = `${rows.length} / ${TREES.length} ağaç`;
+    </tr>`).join("") || `<tr><td colspan="9" class="muted">Bu filtrelere uyan tür yok.</td></tr>`;
+  count.textContent = `${rows.length} / ${TREES.length} tür`;
 }
 
 function buildGroup(key, label, options) {
