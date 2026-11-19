@@ -12,10 +12,9 @@ const CRITERIA = [
 const REGIONS = [
   { id: "bursa", name: "Bursa", scores: { olive: 4, water: 4, land: 2, visitors: 5, distance: 4, frost: 3, market: 5 } },
   { id: "canakkale", name: "Çanakkale", scores: { olive: 5, water: 2, land: 4, visitors: 3, distance: 3, frost: 4, market: 3 } },
-  { id: "yalova", name: "Yalova", scores: { olive: 3, water: 5, land: 1, visitors: 4, distance: 5, frost: 3, market: 4 } },
+  { id: "cinarcik", name: "Çınarcık · Yalova", scores: { olive: 3, water: 4, land: 1, visitors: 4, distance: 4, frost: 4, market: 4 } },
   { id: "bilecik", name: "Bilecik", scores: { olive: 2, water: 3, land: 5, visitors: 2, distance: 4, frost: 2, market: 2 } },
-  { id: "saray", name: "Saray · Tekirdağ", scores: { olive: 1, water: 3, land: 3, visitors: 4, distance: 2, frost: 2, market: 4 } },
-  { id: "demirkoy", name: "Demirköy · Kırklareli", scores: { olive: 1, water: 5, land: 3, visitors: 3, distance: 1, frost: 2, market: 2 } }
+  { id: "ayvalik", name: "Ayvalık · Balıkesir", scores: { olive: 5, water: 2, land: 2, visitors: 5, distance: 1, frost: 5, market: 4 } }
 ];
 
 const weightsEl = document.getElementById("weights");

@@ -16,26 +16,25 @@ ROOT = Path(__file__).resolve().parents[2]
 PAGE = ROOT / "location.html"
 SOURCE = "https://raw.githubusercontent.com/alpers/Turkey-Maps-GeoJSON/8bbe6554c83c45dbe3605b470d0948f499478dbc/tr-cities.json"
 
-LON_MIN, LON_MAX, LAT_MIN, LAT_MAX = 25.55, 31.0, 39.35, 42.3
+LON_MIN, LON_MAX, LAT_MIN, LAT_MAX = 25.55, 31.0, 38.95, 41.75
 SCALE = 200
 KX = math.cos(math.radians((LAT_MIN + LAT_MAX) / 2))
 WIDTH = round((LON_MAX - LON_MIN) * KX * SCALE)
 HEIGHT = round((LAT_MAX - LAT_MIN) * SCALE)
 
-CANDIDATE_PROVINCES = {"Bursa", "Çanakkale", "Yalova", "Bilecik", "Tekirdağ", "Kırklareli"}
+CANDIDATE_PROVINCES = {"Bursa", "Çanakkale", "Yalova", "Bilecik", "Balıkesir"}
 
 # (slug, label, province note, lon, lat, label side)
 CANDIDATES = [
     ("bursa", "Bursa", None, 29.30, 40.42, "right"),
     ("canakkale", "Çanakkale", None, 26.47, 39.80, "right"),
-    ("yalova", "Yalova", None, 29.00, 40.57, "left"),
+    ("cinarcik", "Çınarcık", "Yalova", 29.12, 40.64, "left"),
     ("bilecik", "Bilecik", None, 30.01, 40.36, "right"),
-    ("saray", "Saray", "Tekirdağ", 27.92, 41.44, "right"),
-    ("demirkoy", "Demirköy", "Kırklareli", 27.77, 41.82, "right"),
+    ("ayvalik", "Ayvalık", "Balıkesir", 26.69, 39.32, "right"),
 ]
 REFERENCE = ("İstanbul", 28.98, 41.01)
-SEAS = [("Karadeniz", 29.6, 41.75), ("Marmara Denizi", 28.05, 40.72), ("Ege Denizi", 25.58, 39.39)]
-COUNTRIES = [("Bulgaristan", 26.75, 42.17), ("Yunanistan", 25.85, 41.05)]
+SEAS = [("Karadeniz", 29.55, 41.5), ("Marmara Denizi", 27.85, 40.82), ("Ege Denizi", 25.62, 39.2)]
+COUNTRIES = [("Yunanistan", 25.85, 41.05)]
 
 
 def project(lon, lat):
@@ -88,7 +87,7 @@ def marker(slug, label, note, lon, lat, side):
 def svg():
     parts = [f'<svg class="harita" viewBox="0 0 {WIDTH} {HEIGHT}" role="img" aria-labelledby="harita-baslik harita-aciklama">',
              '<title id="harita-baslik">Aday bölgeler haritası</title>',
-             '<desc id="harita-aciklama">Kuzeybatı Türkiye. Altı aday: Bursa, Çanakkale, Yalova, Bilecik, Saray (Tekirdağ) ve Demirköy (Kırklareli). Adayların illeri boyalı, İstanbul referans olarak işaretli.</desc>',
+             '<desc id="harita-aciklama">Kuzeybatı Türkiye. Beş aday: Bursa, Çanakkale, Çınarcık (Yalova), Bilecik ve Ayvalık (Balıkesir). Adayların illeri boyalı, İstanbul referans olarak işaretli.</desc>',
              '<g class="iller">', *provinces(), '</g>']
     parts += [f'<text class="deniz" x="{x:.0f}" y="{y:.0f}">{n}</text>' for n, x, y in ((n, *project(lo, la)) for n, lo, la in SEAS)]
     parts += [f'<text class="ulke" x="{x:.0f}" y="{y:.0f}">{n}</text>' for n, x, y in ((n, *project(lo, la)) for n, lo, la in COUNTRIES)]

@@ -7,7 +7,7 @@ Each page is a "note" that weighs options with pros, cons and rough scores, and 
 ## Pages
 
 - `index.html`: notebook overview, decision board, table of contents, log
-- `location.html`: six candidate regions (Bursa, Çanakkale, Yalova, Bilecik, Saray, Demirköy), map, distance to the provincial centre, weighted scoring (`assets/js/location.js`)
+- `location.html`: five candidate regions (Bursa, Çanakkale, Çınarcık, Bilecik, Ayvalık), map, distance to the provincial centre, weighted scoring (`assets/js/location.js`)
 - `garden.html`: garden elements (food forest, keyhole beds, swales, chickens, bees…) and the zone map
 - `trees.html`: candidate trees with filters (`assets/js/trees.js`)
 - `cafe.html`: café concepts
