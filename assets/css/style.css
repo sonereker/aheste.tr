@@ -177,6 +177,23 @@ figcaption.note { letter-spacing: 0; }
 .zone-list .d { color: var(--ink-soft); font-size: 1rem; }
 .zone-list li.is-active { background: var(--surface); }
 
+/* map */
+.map { margin: 0; border-top: 2px solid var(--ink); padding-top: 12px; }
+.harita { display: block; width: 100%; height: auto; }
+.harita .il { fill: var(--surface); stroke: #cfd0c4; stroke-width: .8; stroke-linejoin: round; }
+.harita .aday-il { fill: #e3eadb; stroke: #b7c4a8; }
+.harita .deniz { font-family: var(--font-body); font-style: italic; font-size: 19px; fill: #8c9086; letter-spacing: .04em; }
+.harita .ulke { font-family: var(--font-mono); font-size: 12px; fill: #a4a79b; letter-spacing: .14em; text-transform: uppercase; }
+.harita .referans circle { fill: var(--ink-soft); }
+.harita .referans text { font-family: var(--font-mono); font-size: 14px; fill: var(--ink-soft); }
+.harita .aday circle { fill: var(--leaf); stroke: var(--bg); stroke-width: 2.5; transition: r .15s, fill .15s; }
+.harita .aday text { font-family: var(--font-display); font-weight: 600; font-size: 22px; fill: var(--ink); paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; dominant-baseline: middle; }
+.harita .aday .il-adi { font-family: var(--font-mono); font-weight: 400; font-size: 13px; fill: var(--ink-soft); letter-spacing: .06em; }
+.harita .aday:hover circle, .harita .aday:focus-visible circle { r: 10px; fill: var(--pencil); }
+.harita .aday:focus-visible { outline: none; }
+.harita .aday:focus-visible text:first-of-type { text-decoration: underline; }
+[id^="aday-"] { scroll-margin-top: 24px; }
+
 /* log */
 .log { display: grid; gap: 0; }
 .log article { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); }

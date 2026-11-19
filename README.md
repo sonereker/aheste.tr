@@ -7,7 +7,7 @@ Each page is a "note" that weighs options with pros, cons and rough scores, and 
 ## Pages
 
 - `index.html`: notebook overview, decision board, table of contents, log
-- `location.html`: Bursa vs Çanakkale vs Yalova, distance to the provincial centre, weighted scoring (`assets/js/location.js`)
+- `location.html`: six candidate regions (Bursa, Çanakkale, Yalova, Bilecik, Saray, Demirköy), map, distance to the provincial centre, weighted scoring (`assets/js/location.js`)
 - `garden.html`: garden elements (food forest, keyhole beds, swales, chickens, bees…) and the zone map
 - `trees.html`: candidate trees with filters (`assets/js/trees.js`)
 - `cafe.html`: café concepts
@@ -19,6 +19,16 @@ Each page is a "note" that weighs options with pros, cons and rough scores, and 
 - Region scores and default weights: `CRITERIA` and `REGIONS` in `assets/js/location.js`.
 - Tree data: `TREES` in `assets/js/trees.js`.
 - Zone descriptions: `ZONES` in `assets/js/main.js`.
+
+## Candidate map
+
+The map on `location.html` is an inline SVG between `<!-- harita:başla -->` and `<!-- harita:bitir -->`. Do not edit it by hand; change the candidates, labels or bounds in `tools/harita/build.py` and rerun:
+
+```sh
+python3 tools/harita/build.py   # fetches province borders (Turkey-Maps-GeoJSON, Apache-2.0) and rewrites the map
+```
+
+Styles are under `/* map */` in `assets/css/style.css`.
 
 ## Moon calendar (`/ay-takvimi/`)
 
