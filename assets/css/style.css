@@ -70,7 +70,6 @@ p { margin: 0 0 14px; }
 .section-head .label { padding-top: 12px; }
 .section-head p { margin: 0; max-width: 42em; color: var(--ink-soft); }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
 figure { margin: 0; }
 figcaption { font-family: var(--font-mono); font-size: .75rem; color: var(--ink-soft); margin-top: 8px; letter-spacing: .04em; }
 figcaption.note { letter-spacing: 0; }
@@ -96,14 +95,6 @@ figcaption.note { letter-spacing: 0; }
 .toc strong { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; display: block; line-height: 1.2; }
 .toc span.q { color: var(--ink-soft); font-size: 1rem; }
 
-.board { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
-.board div { border-top: 2px solid currentColor; padding-top: 10px; }
-.board strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; }
-.board span { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
-.board .open { color: var(--pencil); }
-.board .discussing { color: var(--amber); }
-.board .leaning { color: var(--leaf); }
-.board .decided { color: var(--ink); }
 
 /* option cards */
 .options { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; }
@@ -186,10 +177,7 @@ figcaption.note { letter-spacing: 0; }
 .zone-list .d { color: var(--ink-soft); font-size: 1rem; }
 .zone-list li.is-active { background: var(--surface); }
 
-/* ethics + log */
-.ethic { border-top: 2px solid var(--ink); padding-top: 14px; }
-.ethic h3 { font-weight: 500; font-size: 1.4rem; margin: 4px 0 8px; }
-.ethic p { margin: 0; color: var(--ink-soft); font-size: 1.02rem; }
+/* log */
 .log { display: grid; gap: 0; }
 .log article { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 16px 0; border-top: 1px solid var(--line); }
 .log time { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .08em; color: var(--ink-soft); text-transform: uppercase; padding-top: 4px; }
@@ -212,7 +200,7 @@ figcaption.note { letter-spacing: 0; }
   .hero, .split, .zones, .page-head, .scoring, .closing { grid-template-columns: 1fr; gap: 28px; }
   .hero, .page-head { padding: 32px 0; }
   .section-head { grid-template-columns: 1fr; gap: 4px; }
-  .cols-3, .regions { grid-template-columns: 1fr; }
+  .regions { grid-template-columns: 1fr; }
   .options { grid-template-columns: 1fr; }
   .toc a { grid-template-columns: 40px 1fr; }
   .toc a .status { grid-column: 2; justify-self: start; }
