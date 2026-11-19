@@ -9,7 +9,7 @@
   --amber: #9a6a12;
   --line: #e4e4dc;
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-body: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
   --wrap: 1120px;
   color-scheme: light;
@@ -26,8 +26,8 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 1.125rem;
-  line-height: 1.6;
+  font-size: 1.0625rem;
+  line-height: 1.65;
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
